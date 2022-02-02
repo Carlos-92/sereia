@@ -977,24 +977,7 @@ window["tracker"].send("pageview", {
   'cd1': 'Source Code'
 });
 </script>
-
-<script>
-//TAG DE CLICK NO BOTÃO DE "FAÇA UM ORÇAMENTO"
-document.querySelector("a.page-scroll.btn.btn-xl").addEventListener('click', function(){
-    tracker.send('event', {
-    'category': 'Orçamento',
-    'action': 'Click',
-    'label': 'Faça um orçamento',
-    'cd1': 'Source code'
-    })
-})
-
-
-</script>
-
-
-
-  <!-- Google Tag Manager (noscript) -->
+<!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TWPM36V"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
@@ -2620,5 +2603,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </script>
 
 </body>
+<script>
+//TAG DE CLICK NO BOTÃO DE "FAÇA UM ORÇAMENTO"
+document.querySelector("a.page-scroll.btn.btn-xl").addEventListener('click', function(){
+    tracker.send('event', {
+    'category': 'Orçamento',
+    'action': 'Click',
+    'label': 'Faça um orçamento',
+    'cd1': 'Source code'
+    })
+})
+</script>
 
 </html>
