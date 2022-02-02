@@ -970,13 +970,30 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     s.src = "https://script.google.com/macros/s/" + tc + "/dev/library?tn=" + tn +"&sn=" + sn;
     document.body.appendChild(s);
   }
-})("tracker", "AKfycbzeYzAAMhfoaRoDZoZF4MRgBYYAvs-r3RH59ViRJ0oLoUk2yxSdndtIUQwNtR7szZnB", "_trackerCk", "ju");
+})("tracker", "AKfycbzeYzAAMhfoaRoDZoZF4MRgBYYAvs-r3RH59ViRJ0oLoUk2yxSdndtIUQwNtR7szZnB", "_trackerCk", "Ju");
 //https://script.google.com/a/macros/raccoon.ag/s/AKfycbzeYzAAMhfoaRoDZoZF4MRgBYYAvs-r3RH59ViRJ0oLoUk2yxSdndtIUQwNtR7szZnB/exec
 
 window["tracker"].send("pageview", {
   'cd1': 'Source Code'
 });
 </script>
+
+<script>
+//TAG DE CLICK NO BOTÃO DE "FAÇA UM ORÇAMENTO"
+document.querySelector("a.page-scroll.btn.btn-xl").addEventListener('click', function(){
+    tracker.send('event', {
+    'category': 'Orçamento',
+    'action': 'Click',
+    'label': 'Faça um orçamento',
+    'cd1': 'Source code'
+    })
+})
+
+
+</script>
+
+
+
   <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TWPM36V"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
