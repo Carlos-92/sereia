@@ -2614,4 +2614,15 @@ document.querySelector("a.page-scroll.btn.btn-xl").addEventListener('click', fun
     })
 })
 </script>
+<script>
+//INTERAÇÃO COM O "MENU SUPERIOR"
+document.getElementById('mainNav').addEventListener('click', function(){
+    tracker.send('event', {
+    'category': 'Menu Superior',
+    'action': 'Click',
+    'label': 'Interação',
+    'cd1': 'Source code'
+})
+})
+</script>
 </html>
