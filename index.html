@@ -2604,6 +2604,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 </body>
 <script type="text/javascript">
+  /*
 
 //TAG DE CLICK NO BOTÃO DE "FAÇA UM ORÇAMENTO"
   
@@ -2615,6 +2616,21 @@ document.querySelector("a.page-scroll.btn.btn-xl").addEventListener('click', fun
     'cd1': 'Source code'
     })
 })
+//ROLAR ATÉ O FINAL DA PAGINA 
+function scrollar (){
+var x1 = document.body.scrollHeight;
+var x2 = window.innerHeight;
+var xtotal = x1-x2;
+    if (window.scrollY===xtotal){
+        tracker.send('event', {
+            'category': 'Scroll',
+            'action': 'Scroll',
+            'label': 'Até o Final da Página',
+            'cd1': 'Source Code'
+        })
+         document.removeEventListener('scroll', scrollar);
+    }
+}document.addEventListener('scroll', scrollar);
   
 //INTERAÇÃO COM O "MENU SUPERIOR"
   
@@ -2642,11 +2658,11 @@ function viewForm () {
 document.addEventListener('scroll', viewForm);
   
 //TEMPO NA PAGINA 
+// NÃO CONSEGUI FAZER RODAR ESSE CÓDIGO DE SETTIMEOUT '¬¬
   
-document.addEventListener('DOMContentLoaded', (oneMinuteTimer));
-    function oneMinuteTime(){
-        setTimeout(function(){
-            tracker.send('event', {
+document.addEventListener("DOMContentLoaded", function() {
+  setTimeout(() => {
+    tracker.send('event', {
               'category': 'Tempo de Página',
               'action': 'Acima de 1 minuto na página',
               'label': 'Visualizou Página',
@@ -2654,7 +2670,7 @@ document.addEventListener('DOMContentLoaded', (oneMinuteTimer));
         })
     },6000)
     
-}
+})
 //INPUTS NO FORMULÁRIO
 document.addEventListener('input', formulario);
 function formulario(){
@@ -2686,7 +2702,7 @@ function formulario(){
     'label': 'Mensagem',
     'cd1': 'Source code'
     })}
-  
+  */
 </script>
 
 
