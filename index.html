@@ -2626,7 +2626,7 @@ document.getElementById('mainNav').addEventListener('click', menu {
 })
 document.removeEventListener('click')
   }
-})*/
+})
 <script>
 //VIZUALIZAÇÃO DO FORMS
 document.getElementById('contact').addEventListener('click', function(){
@@ -2637,7 +2637,22 @@ document.getElementById('contact').addEventListener('click', function(){
     'cd1': 'Source code'
 })
 })
-
+//TEMPO NA PAGINA 
+document.addEventListener('DOMContentLoaded', (oneMinuteTimer));
+    function oneMinuteTime(){
+        setTimeout(function(){
+            tracker.send('event', {
+              'category': 'Tempo de Página',
+              'action': 'Acima de 1 minuto na página',
+              'label': 'Visualizou Página',
+              'cd1': 'Source Code'
+        })
+    },6000)
+    
+}
+*/
 </script>
+
+
 </script>
 </html>
