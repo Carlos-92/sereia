@@ -2616,7 +2616,7 @@ document.querySelector("a.page-scroll.btn.btn-xl").addEventListener('click', fun
 </script>
 <script>
 //INTERAÇÃO COM O "MENU SUPERIOR"
-/*function menu (){
+function menu (){
 document.getElementById('mainNav').addEventListener('click', menu {
     tracker.send('event', {
     'category': 'Menu Superior',
@@ -2637,6 +2637,8 @@ document.getElementById('contact').addEventListener('click', function(){
     'cd1': 'Source code'
 })
 })
+</script>
+<script>
 //TEMPO NA PAGINA 
 document.addEventListener('DOMContentLoaded', (oneMinuteTimer));
     function oneMinuteTime(){
@@ -2650,7 +2652,40 @@ document.addEventListener('DOMContentLoaded', (oneMinuteTimer));
     },6000)
     
 }
-*/
+</script>
+<script>
+//INPUTS NO FORMULÁRIO
+document.addEventListener('input', formulario);
+function formulario(){
+    if(document.getElementById('name').value !==""){
+        tracker.send('event', {
+    'category': 'Preenchimento do Form',
+    'action': 'Input',
+    'label': 'Nome',
+    'cd1': 'Source code'
+        })}
+    else if (document.getElementById("email").value !== ""){
+                tracker.send('event', {
+    'category': 'Preenchimento do Form',
+    'action': 'Input',
+    'label': 'Email',
+    'cd1': 'Source code'
+    })}
+    else if (document.getElementById("phone").value !== ""){
+        tracker.send('event', {
+    'category': 'Preenchimento do Form',
+    'action': 'Input',
+    'label': 'Telefone',
+    'cd1': 'Source code'
+    })}
+    else if(document.getElementById("phone").value !== ""){
+        tracker.send('event', {
+    'category': 'Preenchimento do Form',
+    'action': 'Input',
+    'label': 'Mensagem',
+    'cd1': 'Source code'
+    })}
+    }
 </script>
 
 
