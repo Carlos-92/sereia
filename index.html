@@ -2627,5 +2627,17 @@ document.getElementById('mainNav').addEventListener('click', menu {
 document.removeEventListener('click')
   }
 })*/
+<script>
+//VIZUALIZAÇÃO DO FORMS
+document.getElementById('contact').addEventListener('click', function(){
+     tracker.send('event', {
+    'category': 'Visualizou o Formulario',
+    'action': 'Visualização',
+    'label': 'Interação',
+    'cd1': 'Source code'
+})
+})
+
+</script>
 </script>
 </html>
