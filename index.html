@@ -2703,6 +2703,16 @@ function formulario(){
     'cd1': 'Source code'
     })}
 }
+//POP-UP
+   document.querySelector('img#call-me-baby').addEventListener('transitionend', function () {
+      tracker.send('event', {
+        'category' : 'Pop-up',
+        'action':'pop-up',
+        'label': 'Notificação',
+        'cd1':'Source Code'
+      })
+    })
+
 //REDES SOCIAIS 
 function func1(e) {
   if (Array.from(document.querySelectorAll('.list-inline.social-buttons li a i')).includes(e.target)) {
