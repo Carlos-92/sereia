@@ -2607,8 +2607,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   /*
 
 //TAG DE CLICK NO BOTÃO DE "FAÇA UM ORÇAMENTO"
-  
-document.querySelector("a.page-scroll.btn.btn-xl").addEventListener('click', function(){
+  document.querySelector("a.page-scroll.btn.btn-xl").addEventListener('click', function(){
     tracker.send('event', {
     'category': 'Orçamento',
     'action': 'Click',
@@ -2616,25 +2615,9 @@ document.querySelector("a.page-scroll.btn.btn-xl").addEventListener('click', fun
     'cd1': 'Source code'
     })
 })
-//ROLAR ATÉ O FINAL DA PAGINA 
-function scrollar (){
-var x1 = document.body.scrollHeight;
-var x2 = window.innerHeight;
-var xtotal = x1-x2;
-    if (window.scrollY===xtotal){
-        tracker.send('event', {
-            'category': 'Scroll',
-            'action': 'Scroll',
-            'label': 'Até o Final da Página',
-            'cd1': 'Source Code'
-        })
-         document.removeEventListener('scroll', scrollar);
-    }
-}document.addEventListener('scroll', scrollar);
   
 //INTERAÇÃO COM O "MENU SUPERIOR"
-  
-document.querySelector('.nav.navbar-nav.navbar-right').addEventListener('click', function () {
+  document.querySelector('.nav.navbar-nav.navbar-right').addEventListener('click', function () {
         tracker.send('event', {
         'category': 'Menu Superior',
         'action': 'Click',
@@ -2643,9 +2626,8 @@ document.querySelector('.nav.navbar-nav.navbar-right').addEventListener('click',
         })
     })
   
-//VIZUALIZAÇÃO DO FORM
- 
-function viewForm () {
+//VIZUALIZAÇÃO DO FORM E ROLAR ATÉ O FINAL DA PAGINA 
+ function viewForm () {
   if(window.scrollY == document.body.scrollHeight - window.innerHeight){
  tracker.send('event', {
     'category': 'Visualizou o Formulario',
@@ -2658,9 +2640,7 @@ function viewForm () {
 document.addEventListener('scroll', viewForm);
   
 //TEMPO NA PAGINA 
-// NÃO CONSEGUI FAZER RODAR ESSE CÓDIGO DE SETTIMEOUT '¬¬
-  
-document.addEventListener("DOMContentLoaded", function() {
+  document.addEventListener("DOMContentLoaded", function() {
   setTimeout(() => {
     tracker.send('event', {
               'category': 'Tempo de Página',
@@ -2671,38 +2651,67 @@ document.addEventListener("DOMContentLoaded", function() {
     },6000)
     
 })
+
 //INPUTS NO FORMULÁRIO
-document.addEventListener('input', formulario);
-function formulario(){
-    if(document.getElementById('name').value !==""){
-        tracker.send('event', {
-    'category': 'Preenchimento do Form',
-    'action': 'Input',
-    'label': 'Nome',
-    'cd1': 'Source code'
+  document.addEventListener('input', (e) => {
+        if(document.getElementById('name').value !==""){
+            tracker.send('event', {
+        'category': 'Preenchimento do Form',
+        'action': 'Input',
+        'label': 'Nome',
+        'cd1': 'Source code',
+        'cd2': e.target.id
         })}
-    else if (document.getElementById("email").value !== ""){
-                tracker.send('event', {
-    'category': 'Preenchimento do Form',
-    'action': 'Input',
-    'label': 'Email',
-    'cd1': 'Source code'
-    })}
-    else if (document.getElementById("phone").value !== ""){
-        tracker.send('event', {
-    'category': 'Preenchimento do Form',
-    'action': 'Input',
-    'label': 'Telefone',
-    'cd1': 'Source code'
-    })}
-    else if(document.getElementById("phone").value !== ""){
-        tracker.send('event', {
-    'category': 'Preenchimento do Form',
-    'action': 'Input',
-    'label': 'Mensagem',
-    'cd1': 'Source code'
-    })}
-}
+        else if (document.getElementById("email").value !== ""){
+                    tracker.send('event', {
+        'category': 'Preenchimento do Form',
+        'action': 'Input',
+        'label': 'Email',
+        'cd1': 'Source code',
+        'cd2': e.target.id
+        })}
+        else if (document.getElementById("phone").value !== ""){
+            tracker.send('event', {
+        'category': 'Preenchimento do Form',
+        'action': 'Input',
+        'label': 'Telefone',
+        'cd1': 'Source code',
+        'cd2': e.target.id
+        })}
+        else if(document.getElementById("phone").value !== ""){
+            tracker.send('event', {
+        'category': 'Preenchimento do Form',
+        'action': 'Input',
+        'label': 'Mensagem',
+        'cd1': 'Source code',
+        'cd2': e.target.id
+        })}
+    
+        {once: true}})
+
+//ENVIO DE MENSAGEM PELO FORMULÁRIO 
+    document.querySelector('form#contactForm').addEventListener('submit', (e) => {
+        var inNome = document.querySelector('#name').validity.valid;
+        var inEmail = document.querySelector('#email').validity.valid;
+        var inTel = document.querySelector('#phone').validity.valid;
+        var inMens = document.querySelector('#message').validity.valid;
+        var cd2 = '' ;
+    if(inNome === false || inEmail === false || inTel === false || inMens === false) {
+        cd2 = 'Erro';
+    }
+    else { 
+        cd2: 'Sucesso';
+     }
+        
+    tracker.send('event', {
+        'category': 'Envio de Mensagem',
+        'action': 'submit',
+        'label': 'Envio de Mensagem',
+        'cd1': 'Source Code',
+        'cd2': cd2
+    });
+    });
+
 //POP-UP
    document.querySelector('img#call-me-baby').addEventListener('transitionend', function () {
       tracker.send('event', {
@@ -2714,7 +2723,7 @@ function formulario(){
     })
 
 //REDES SOCIAIS 
-function func1(e) {
+  function func1(e) {
   if (Array.from(document.querySelectorAll('.list-inline.social-buttons li a i')).includes(e.target)) {
     e2 = e.target
   } else {
